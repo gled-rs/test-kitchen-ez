@@ -54,7 +54,7 @@ module Kitchen
       #   local kitchen YAML file, if it exists (default: `true`)
       def initialize(options = {})
         @config_file =
-          File.expand_path(options[:project_config] || default_config_file)
+          File.expand_path(options[:project_config] || find_config_file)
         @local_config_file =
           File.expand_path(options[:local_config] || default_local_config_file)
         @global_config_file =
@@ -107,6 +107,15 @@ module Kitchen
       #   file
       # @api private
       attr_reader :global_config_file
+
+      def find_config_file
+        Pathname.new(Dir.pwd).ascend do |dir|
+	  path = File.expand_path(".kitchen.yml", dir)
+	  return path if File.exists?(path)
+	end
+	File.expand_path('.kitchen.yml', Dir.pwd)
+      end
+
 
       # Performed a prioritized recursive merge of several source Hashes and
       # returns a new merged Hash. There are 3 sources of configuration data:

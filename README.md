@@ -1,8 +1,8 @@
 # Test Kitchen EZ
 
-> ** THIS IS A FORK FROM test-kitchen, as the base framework was not allowing us enough configuration items
-> this adds a few more configuration like allowing to specify the Berksfile path to use, or the cookbooks path
-> to search for.
+> ** THIS IS A FORK FROM test-kitchen,
+> the base framework was not allowing us to specify a few conf items or behaviour
+> so this will follow upstream, but add the necessary bricks for us.
 
 * Changes:
   * berksfile_path entry for provisioner, allow to specify the berksfile to use instead of the one in the cookbook root dir

@@ -6,6 +6,7 @@
 
 * Changes:
   * berksfile_path entry for provisioner, allow to specify the berksfile to use instead of the one in the cookbook root dir
+  * by default, kitchen will search parent directories for a .kitchen.yml config
 
 WARNING you can use this as a drop-in replacement of test-kitchen, but cannot use both at the same time
 
